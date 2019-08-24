@@ -1,24 +1,48 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+module.exports = function (app) {
+  let arr = ['places', 'users', 'comments']
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+  for (i in arr) {
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+
+    // Create
+    app.post(`/api/${arr[i]}`, function (req, res) {
+      db[arr[i]].create(req.body)
+      .then(function (table) {
+        res.json(table);
+      });
     });
-  });
+
+    // Read
+    app.get(`/api/${arr[i]}`, function (req, res) {
+      db[arr[i]].findAll({})
+      .then(function (table) {
+        res.json(table);
+      });
+    });
+
+    // Update
+    app.put(`/api/${arr[i]}/:id`, function (req, res) {
+      db[arr[i]].update({ 
+        where: { 
+          id: req.params.id } })
+          .then(function (table) {
+            res.json(table);
+      });
+    });
+
+    // Delete
+    app.delete(`/api/${arr[i]}/:id`, function (req, res) {
+      db[arr[i]].destroy({ 
+        where: { 
+          id: req.params.id } })
+          .then(function (table) {
+            res.json(table);
+      });
+    });
+
+
+  }
+
 };
