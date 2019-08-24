@@ -1,5 +1,14 @@
 # rate-my-place
 
+# Colabpeeps
+- Tali Lead
+- Renee DB
+- Architect Bronson
+- QA David
+- DevOps Jared
+
+# Reqs
+
 - Node Express Server
 - MySQL DB and Sequelize ORM
 - Get and Post routes
