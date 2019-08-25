@@ -1,56 +1,85 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $searchText = $("#search");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
+let databases = ['places', 'users', 'comments'];
+var API = {};
+
+
+for (let i in databases) {
+
+  API[`create-${databases[i]}`] = function (example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: `api/${databases[i]}`,
       data: JSON.stringify(example)
     });
-  },
-  getExamples: function() {
+  };
+
+  API[`read-${databases[i]}`] = function () {
     return $.ajax({
-      url: "api/examples",
+      url: `api/${databases[i]}`,
       type: "GET"
     });
-  },
-  deleteExample: function(id) {
+  };
+  
+  API[`find-${databases[i]}`] = function (search) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: `api/${databases[i]}/find/${search}`,
+      type: "GET"
+    });
+  };
+
+  API[`update-${databases[i]}`] = function (id, update) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "PUT",
+      url: `api/${databases[i]}/${id}`,
+      data: JSON.stringify(update)
+    });
+  };
+
+  API[`delete-${databases[i]}`] = function (id) {
+    return $.ajax({
+      url: `api/${databases[i]}/` + id,
       type: "DELETE"
     });
-  }
+  };
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+
+var refreshPlaces = function () {
+  API['read-places']().then(function (data) {
+    var $examples = data.map(function (example) {
       var $a = $("<a>")
-        .text(example.text)
+        .text(example.URL)
         .attr("href", "/example/" + example.id);
+
+      var $title = $('<h1>')
+        .text(example.name)
+
+      var $address = $('<p>')
+        .text(`${example.streetAddress} ${example.city}, ${example.state} ${example.zip}`);
+
+      var children = [$title, $address, $a];
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
           "data-id": example.id
-        })
-        .append($a);
+        });
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
+      for (let i in children){
+        $li.append(children[i])
+      }
+    
       return $li;
     });
 
@@ -61,35 +90,24 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
+  let text = $searchText.val().trim();
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API[`find-${databases[i]}`](text).then(function () {
+    refreshPlaces();
   });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
+  API.deleteExample(idToDelete).then(function () {
     refreshExamples();
   });
 };
