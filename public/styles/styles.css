@@ -10,7 +10,7 @@
 */
 body {
   line-height: 1.7em;
-  color: #7f8c8d;
+  color: black;
   font-size: 13px;
 }
 
@@ -25,8 +25,8 @@ label {
 }
 
 .pure-img-responsive {
-  max-width: 100%;
-  height: auto;
+  max-width: 300px;
+  height: 200px;
 }
 
 /*
@@ -96,7 +96,7 @@ a.pure-button-primary {
   box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
 .home-menu {
-  background: #2d3e50;
+  background: black;
 }
 .pure-menu.pure-menu-fixed {
   /* Fixed menus normally have a border at the bottom. */
@@ -122,9 +122,12 @@ a.pure-button-primary {
 .home-menu li a:focus {
   background: none;
   border: none;
-  color: #AECFE5;
+  color: black;
 }
 
+.pure-menu-list{
+  text-align: left
+}
 
 /*
 * -- SPLASH STYLES --
@@ -132,7 +135,7 @@ a.pure-button-primary {
 */
 
 .splash-container {
-  background: #1f8dd6;
+  background: black;
   z-index: 1;
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
@@ -208,7 +211,7 @@ a.pure-button-primary {
 
 /* This is the class used for the content sub-headers (<h3>) */
 .content-subhead {
-  color: #1f8dd6;
+  color: black;
 }
   .content-subhead i {
       margin-right: 7px;
