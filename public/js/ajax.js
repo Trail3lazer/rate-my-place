@@ -16,7 +16,7 @@ for (let i in databases) {
     });
   };
 
-  API[`read-${databases[i]}`] = function () {
+  API[`get-${databases[i]}`] = function () {
     return $.ajax({
       url: `api/${databases[i]}`,
       type: "GET"

@@ -184,50 +184,7 @@
     <!--  -->
     </div>
     <!-- Place Details modal -->
-    <div class="modal fade bd-place-modal-lg" tabindex="-1" role="dialog" aria-labelledby="My-Place-Modal"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <h4 class="modal-title" text="result[i].name" id="myLargeModalLabel"></h4>
-            <hr />
-            <div class="modal-content">
-                <p class='result[i].streetAddress result[i].city result[i].state result[i].zip'></p>
-                <p class='result[i].rating'></p>
-                <!--COMMENT OPTION IF (userType = tenant)-->
-                <div class="form-group">
-                    <textarea class="form-control" name="" id="" rows="3"></textarea>
-                    <div class="form-group">
-                        <label for="rating-select">Star Rating</label>
-                        <select class="form-control" id="rating-select">
-                            <option>0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    </span>
-                    <button type="submit" class="btn btn-primary">Comment</button>
-                </div>
-                <!-- END COMMENT OPTION -->
-                <!-- Comments -->
-                <div class="comments">
-                    <ul class="list-group">
-                        <!-- {{#each comments}} -->
-                        <li class="list-group-item">
-                            <div class="row">
-                                <h5 class="comment-user"></h5>
-                                <div class="comment-text"></div>
-                                <div class="comment-rating"></div>
-                            </div>
-                        </li>
-                        <!-- {{/each}} -->
-                    </ul>
-                </div>
-                <!-- End Comments -->
-            </div>
-        </div>
-    </div>
+    
     <!-- END PLACE DETAILS MODAL-->
 
     <!-- Edit Place (PUT/UPDATE)
