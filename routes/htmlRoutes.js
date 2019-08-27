@@ -1,4 +1,5 @@
 var db = require("../models");
+var API = 
 
 module.exports = function(app) {
   // Load index page
@@ -9,6 +10,10 @@ module.exports = function(app) {
         examples: dbExamples
       });
     });
+  });
+
+  app.get("/ratemyplace", function(req, res) {
+      res.render("add");
   });
 
   // Load example page and pass in an example by id

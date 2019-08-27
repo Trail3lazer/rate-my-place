@@ -22,9 +22,11 @@
                         <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
                     <![endif]-->
     <!--[if gt IE 8]><!-->
-    
+
     <!--<![endif]-->
-    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -139,9 +141,8 @@
 
 
     </div>
-    <form class="pure-form pure-form-aligned">
 
-        <!-- CREATE PLACE FORM
+    <!-- CREATE PLACE FORM
                 allow create if 
                 (username and pass = true)
                 and (user type is owner)
@@ -159,99 +160,77 @@
             Creator Id - back end
              -->
 
-        <!-- RESULTS DIV (READ) -->
-        <div id="results">
-            <!-- for each result create {
-                    card { 
-                        {{#each results}}-->
-            <div class="card" data-toggle="modal" data-target=".bd-place-modal-lg" style="width: 18rem;">
-                <img class="card-img-top" src="result[i].imgHead" alt="Card image cap">
-                <div class="card-img-overlay">
-                    <h5 class="card-title" text="result[i].name"></h5>
-                </div>
-                <div class="card-body">
-                    <p class='result[i].streetAddress result[i].city result[i].state result[i].zip'></p>
-                    <p class='result[i].rating'></p>
-                </div>
-            </div>
+    <!-- RESULTS DIV (READ) -->
+    <div class="card-deck" id="results-container">
+        <!-- for each result create {
+                    card { -->
 
-            <!-- Title
-                        Address
-                        Phone
-                        Prop Manager
-                        Images
-                        Star Rating
-                       -->
-            <!-- Place Details modal -->
-            <div class="modal fade bd-place-modal-lg" tabindex="-1" role="dialog" aria-labelledby="My-Place-Modal"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <h4 class="modal-title" text="result[i].name" id="myLargeModalLabel"></h4>
-                    <hr />
-                    <div class="modal-content">
-                        <p class='result[i].streetAddress result[i].city result[i].state result[i].zip'></p>
-                        <p class='result[i].rating'></p>
-                        <!--COMMENT OPTION IF (userType = tenant)-->
-                        <div class="input-group">
-                            <textarea class="form-control" name="" id="" rows="3"></textarea>
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-secondary dropdown-toggle" aria-label="rating"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Stars
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div>0</div>
-                                    <div>1</div>
-                                    <div>2</div>
-                                    <div>3</div>
-                                    <div>4</div>
-                                    <div>5</div>
-                                </div>
-                            </span>
-                            <button type="submit" class="btn btn-primary">Comment</button>
-                        </div>
-                        <!-- END COMMENT OPTION -->
-                        <div class="comments">
-                            <ul class="list-group">
-                                <!-- {{#each comments}} -->
-                                <li class="list-group-item">
-                                    <div class="row">
-                                    <h5 class="comment-user"></h5>
-                                    <div class="comment-text"></div>
-                                    <div class="comment-rating"></div>
-                                    </div>
-                                </li>
-                                <!-- {{/each}} -->
-                            </ul>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-            <!-- END PLACE DETAILS MODAL-->
-        </div>
-
-        <!--
-                        onClick modal {comments
-                        add comments button {
-                            append (
-                                text area for comment
-                                rating
-                                )
-                        }}
-                        comments
-                        add comments div {
-                            text area for comment
-                            rating
-                        }
-                    }
-                }
+    <!--
+    onClick modal {comments
+    add comments button {
+         append (
+             text area for comment
+            rating
+            )
+    }}
+    comments
+    add comments div {
+        text area for comment
+        rating
+        }
 
             -->
-        <!-- {{/each}} -->
+    <!--  -->
+    </div>
+    <!-- Place Details modal -->
+    <div class="modal fade bd-place-modal-lg" tabindex="-1" role="dialog" aria-labelledby="My-Place-Modal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <h4 class="modal-title" text="result[i].name" id="myLargeModalLabel"></h4>
+            <hr />
+            <div class="modal-content">
+                <p class='result[i].streetAddress result[i].city result[i].state result[i].zip'></p>
+                <p class='result[i].rating'></p>
+                <!--COMMENT OPTION IF (userType = tenant)-->
+                <div class="form-group">
+                    <textarea class="form-control" name="" id="" rows="3"></textarea>
+                    <div class="form-group">
+                        <label for="rating-select">Star Rating</label>
+                        <select class="form-control" id="rating-select">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    </span>
+                    <button type="submit" class="btn btn-primary">Comment</button>
+                </div>
+                <!-- END COMMENT OPTION -->
+                <!-- Comments -->
+                <div class="comments">
+                    <ul class="list-group">
+                        <!-- {{#each comments}} -->
+                        <li class="list-group-item">
+                            <div class="row">
+                                <h5 class="comment-user"></h5>
+                                <div class="comment-text"></div>
+                                <div class="comment-rating"></div>
+                            </div>
+                        </li>
+                        <!-- {{/each}} -->
+                    </ul>
+                </div>
+                <!-- End Comments -->
+            </div>
         </div>
+    </div>
+    <!-- END PLACE DETAILS MODAL-->
 
-        <!-- Edit Place (PUT/UPDATE)
+    <!-- Edit Place (PUT/UPDATE)
             allow edit if (user Id = Creator Id) and (username and pass = true)
 
             {name: search}, 
@@ -267,7 +246,7 @@
             userId - back end
             -->
 
-        <!-- Create User
+    <!-- Create User
         
         
 
@@ -283,7 +262,7 @@
             add fave/owned places (ids) column
 
             -->
-
+    <form class="pure-form pure-form-aligned">
         <div class="container"></div>
         <h3>Create User</h3>
         <fieldset>
@@ -339,7 +318,10 @@
             rating
         -->
 
-
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="./js/index.js"></script>
 </body>
 
 </html>
