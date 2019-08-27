@@ -9,14 +9,14 @@ var API = {};
 
 for (let i in databases) {
 
-  API[`create-${databases[i]}`] = function (example) {
+  API[`create-${databases[i]}`] = function (formData) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
       url: `api/${databases[i]}`,
-      data: JSON.stringify(example)
+      data: JSON.stringify(formData)
     });
   };
 
