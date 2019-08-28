@@ -1,5 +1,5 @@
 var db = require("../models");
-var API = 
+let cardMaker = require('cardMaker')
 
 module.exports = function(app) {
   // Load index page
@@ -13,7 +13,9 @@ module.exports = function(app) {
   });
 
   app.get("/ratemyplace", function(req, res) {
-      res.render("add");
+      res.render("add", {
+        cards: cardMaker("*")
+      });
   });
 
   // Load example page and pass in an example by id

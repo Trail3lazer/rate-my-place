@@ -43,14 +43,14 @@
         </div>
     </div>
 
-    <div class="splash-container">
+    {{!-- <div class="splash-container">
         <div class="splash">
             <h1 class="splash-head">Add A Review</h1>
             <p class="splash-subhead">
             </p>
 
         </div>
-    </div>
+    </div> --}}
 
     <div class="container">
         <!-- Content here -->
@@ -162,6 +162,11 @@
 
     <!-- RESULTS DIV (READ) -->
     <div class="card-deck" id="results-container">
+        {{#each cards}}
+            {{card}}
+        {{/each}}
+    </div>
+
         <!-- for each result create {
                     card { -->
 
@@ -182,7 +187,7 @@
 
             -->
     <!--  -->
-    </div>
+    
     <!-- Place Details modal -->
     
     <!-- END PLACE DETAILS MODAL-->

@@ -23,9 +23,9 @@ for (let i in databases) {
     });
   };
   
-  API[`find-${databases[i]}`] = function (search) {
+  API[`find-${databases[i]}`] = function (column, search) {
     return $.ajax({
-      url: `api/${databases[i]}/find/${search}`,
+      url: `api/${databases[i]}/find/${column}/${search}`,
       type: "GET"
     });
   };

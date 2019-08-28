@@ -1,9 +1,11 @@
-module.exports = (place) => {
+let modalMaker = (placeID) => {
     let API = require("./ajax")
-    
     $("#specificResultModal").remove();
 
-    API["find-comments"](place.id).then((commentsArray)=>{
+
+    API['find-places']('id', placeID).then((placesArray)=>{
+        let place = placesArray[0]
+    API["find-comments"]('placeKey',placeID).then((commentsArray)=>{
 
     let formatedComments = $("<ul class='list-group'>")
 
@@ -32,10 +34,19 @@ module.exports = (place) => {
             <hr />
             <div class="modal-content">
                 <p>
+                    ${place.propType}
+                    <br />
                     ${place.streetAddress +' '+ place.city +', '+ place.state +' '+ place.zip}
+                    <br />
+                    ${place.phone}
+                    <br />
+                    ${place.propMgr}
                 </p>
                 <p>
-                    ${place.rating}
+                    <div class="d-inline-block">
+                        ${place.rating}
+                        <span style="color: #FFE066"><i class="fas fa-star"></i></span>
+                    </div>
                 </p>
                 <hr />
                 <!--COMMENT OPTION IF (userType = tenant)-->
@@ -80,5 +91,5 @@ module.exports = (place) => {
 
 }
 )
-    
+})
 }
