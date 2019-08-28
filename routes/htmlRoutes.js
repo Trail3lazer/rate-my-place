@@ -1,5 +1,4 @@
 var db = require("../models");
-let cardMaker = require('cardMaker')
 
 module.exports = function(app) {
   // Load index page
@@ -13,16 +12,24 @@ module.exports = function(app) {
   });
 
   app.get("/ratemyplace", function(req, res) {
-      res.render("add", {
-        cards: cardMaker("*")
+    db['places'].findAll({})
+      .then(function (table) {
+
+      res.render("search", {
+        cards: table
       });
   });
+})
 
   // Load example page and pass in an example by id
-  app.get("/findOne/:id", function(req, res) {
-    db.places.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/place/:id", function(req, res) {
+    db.places.findOne({ where: { id: req.params.id } }).then(function(place) {
+      db.comments.findAll( {where: { placeKey: req.params.id} })
+      .then(function (comments) {
+        res.render("place", {
+          place: place,
+          comments: comments
+        });
       });
     });
   });
