@@ -25,22 +25,14 @@ module.exports = function (app) {
     });
 
     // Find
-    app.get(`/api/${arr[i]}/find/:search`, function (req, res) {
-      let search = req.params.search;
+    app.get(`/api/${arr[i]}/find/:column/:search`, function (req, res) {
+      let whereClause = {}
+      whereClause[req.params.column] = req.params.search;
+      
       db[arr[i]].findAll({
         where: {
-          [Op.or]: [
-            {id: search}, 
-            {name: search}, 
-            {streetAddress: search}, 
-            {phone: search},
-            {propType: search},
-            {propMgr: search},
-            {city: search},
-            {state: search},
-            {zip: search},
-            {ratingAvg: search}
-          ]}
+            whereClause, 
+          }
       })
       .then(function (table) {
         res.json(table);
