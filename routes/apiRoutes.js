@@ -1,4 +1,6 @@
 var db = require("../models");
+const Sequelize = require("sequelize")
+const Op = Sequelize.Op;
 
 module.exports = function (app) {
   let arr = ['places', 'users', 'comments']
@@ -17,6 +19,21 @@ module.exports = function (app) {
     // Read
     app.get(`/api/${arr[i]}`, function (req, res) {
       db[arr[i]].findAll({})
+      .then(function (table) {
+        res.json(table);
+      });
+    });
+
+    // Find
+    app.get(`/api/${arr[i]}/find/:column/:search`, function (req, res) {
+      let whereClause = {}
+      whereClause[req.params.column] = req.params.search;
+      
+      db[arr[i]].findAll({
+        where: {
+            whereClause, 
+          }
+      })
       .then(function (table) {
         res.json(table);
       });

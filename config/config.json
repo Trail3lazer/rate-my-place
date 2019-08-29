@@ -1,9 +1,6 @@
 {
   "development": {
-    "username": "root",
-    "password": "yourRootPassword",
-    "database": "rateMyPlace",
-    "host": "localhost",
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   },
   "test": {
@@ -15,7 +12,6 @@
     "logging": false
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    
   }
 }
