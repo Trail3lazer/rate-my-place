@@ -1,6 +1,4 @@
 var db = require("../models");
-const Sequelize = require("sequelize")
-const Op = Sequelize.Op;
 
 module.exports = function (app) {
   let arr = ['places', 'users', 'comments']
