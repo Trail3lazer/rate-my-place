@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "yourRootPassword",
     "database": "rateMyPlace",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "yourRootPassword",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",

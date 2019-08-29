@@ -1,6 +1,11 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var passport = require('passport');
+var flash = require('connect-flash');
+var bodyParser = require('body-parser')
+var session = require('express-session');
+// var GoogleStrategy = require("passport-google-oauth20");
 
 var db = require("./models");
 
@@ -8,9 +13,15 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+
+//passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 
 // Handlebars
 app.engine(
@@ -22,6 +33,15 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+var models = require("./models");
+
+
+//Routes
+var authRoute = require('./routes/auth.js')(app,passport);
+
+
+//load passport strategies
+require('./config/passport/passport.js')(passport,models.user);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
