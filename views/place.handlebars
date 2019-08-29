@@ -1,66 +1,65 @@
+<div class="jumbotron">
+    <h1 class="display-1">{{place.name}}</h1>
 
-            <div class="jumbotron">
-                <h1 class="display-1">{{place.name}}</h1>
+    <p class="lead">
+        {{place.propType}}
+    </p>
 
-                <p class="lead">
-                    {{place.propType}}
-                </p>
+    <hr>
 
-                <hr>
+    <p>
+        <i class="fas fa-map-marker-alt"></i> {{place.streetAddress}} {{place.city}}, {{place.state}}
+        {{place.zip}}
+        <br />
+        <i class="fas fa-phone-alt"></i> {{place.phone}}
+        <br />
+        <i class="fas fa-briefcase"></i> {{place.propMgr}}
+    </p>
+    <p>
+        <div class="d-inline-block">
+            {{place.ratingAvg}}
+            <span style="color: #FFE066"><i class="fas fa-star"></i></span>
+        </div>
+    </p>
+</div>
 
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> {{place.streetAddress}} {{place.city}}, {{place.state}}
-                    {{place.zip}}
-                    <br />
-                    <i class="fas fa-phone-alt"></i> {{place.phone}}
-                    <br />
-                    <i class="fas fa-briefcase"></i> {{place.propMgr}}
-                </p>
-                <p>
-                    <div class="d-inline-block">
-                        {{place.ratingAvg}}
-                        <span style="color: #FFE066"><i class="fas fa-star"></i></span>
-                    </div>
-                </p>
-            </div>
-            <hr>
+<!--COMMENT OPTION IF (userType = tenant)-->
+<div class="container bg-light my-4 p-3 border rounded">
+    <form class="form-group" id="newCommment">
+        <h1>Add A Comment</h1>
 
-            <br>
-            <!--COMMENT OPTION IF (userType = tenant)-->
-            <form class="form-group" id="newCommment">
+        <textarea class="form-control" name="text" id="newComment-text" rows="2"></textarea>
 
-                <textarea class="form-control" name="text" id="newComment-text" rows="2"></textarea>
-
-                <div class="form-group">
-                    <label for="rating-select">Star Rating</label>
-                    <select class="form-control" name="rating" id="rating-select">
-                        <option>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn btn-primary" id="newComment-submit">Comment</button>
-            </form>
-            <!-- END COMMENT OPTION -->
-            <!-- Comments -->
-            <div class="comments">
-                <ul class="list-group">
-                                {{#each comments}}
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <h5 class={{username}}></h5>
-                                        <div class={{text}}></div>
-                                        <div class="rating" id="{{@index}}-rating" data-rating={{rating}}></div>
-                                    </div>
-                                </li>
-                                {{/each}}
-                            </ul>
-            </div>
-            <!-- End Comments -->
+        <div class="form-group">
+            <label for="rating-select">Star Rating</label>
+            <select class="form-control" name="rating" id="rating-select">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
         </div>
 
-        <script src="/js/place.js"></script>
+        <button type="submit" class="btn btn-primary" id="newComment-submit">Comment</button>
+    </form>
+</div>
+<!-- END COMMENT OPTION -->
+<!-- Comments -->
+<div class="container comments">
+    <ul class="list-group">
+        {{#each comments}}
+        <li class="list-group-item">
+            <div class="row">
+                <h5>{{username}}</h5>
+                <div>{{text}}</div>
+                <div class="rating" id="{{@index}}-rating" data-rating={{rating}}></div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<!-- End Comments -->
+</div>
+<script src="/js/place.js"></script>
