@@ -1,116 +1,4 @@
-
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-3 sidenav">
-      <h4>Rent My Place</h4>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Home</a></li>
-        <li><a href="#section2">Sign Up </a></li>
-        <li><a href="#section3">Log in</a></li>
-        
-      </ul><br>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <div class="col-sm-9">
-      <h4><small></small></h4>
-      <hr>
-      <h2>Add A Review</h2>
-
-      <form>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Name Of The Place</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Place Name">
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4">Property Manger</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Name of the Manger">
-            </div>
-          
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4">Street Address</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Street Address">
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="inputEmail4">City</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="City">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                    <label for="inputEmail4">State</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="State">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-2">
-                          <label for="inputEmail4">Zip Code</label>
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="Zip Code">
-                        </div>    
-                
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="inputEmail4">Phone Number</label>
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="Phone Number">
-                        </div>
-                    </form>
-                    
-                        
-                    
-          
-
-            </select>
-          </div>
-          
-
-            <!-- <div class="form-row">
-            <div class="form-group col-md-6">    
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div> -->
-
-
-    <div class="form-row">
-    <div class="form-group col-lg-9">
-      <h4>Add a Review:</h4>
-      <form role="form">
-        <div class="form-group">
-          <textarea class="form-control" rows="3" required></textarea>
-        </div>
-
-        <div class="submit">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      <br><br>
-    </div>
-    
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</form>
-</div>
-
-    <!-- CREATE PLACE FORM
+<!-- CREATE PLACE FORM
                 allow create if 
                 (username and pass = true)
                 and (user type is owner)
@@ -129,11 +17,11 @@
              -->
 
     <!-- RESULTS DIV (READ) -->
-    <div class="card-deck col-md-2" id="results-container">
+    <div class="card-deck col-12" id="results-container">
         {{#each cards}}
         <a href="/place/{{id}}">
-            <div class="card place-card col-12 p-1" data-placeId={{id}} type="button">
-                <img class="card-img-top" src="http://placekitten.com/300/200" alt="Card image cap">
+            <div class="card place-card p-1" data-placeId={{id}} type="button">
+                <img class="card-img-top img-fluid" src="http://placekitten.com/300/200" alt="Card image cap">
                 <div class="card-img-overlay text-light">
                     <h5 class="card-title">{{name}}</h5>
                 </div>
@@ -142,9 +30,8 @@
                         {{streetAddress}} {{city}}, {{state}}  {{zip}}
                     </p>
                     <p>
-                        <div class="d-inline-block">
-                            {{ratingAvg}}
-                            <span style="color: #FFE066"><i class="fas fa-star"></i></span>
+                        <div class="d-inline-block rating" data-rating={{ratingAvg}} id="{{@index}}-rating">
+                            
                         </div>
                     </p>
                 </div>
@@ -262,3 +149,5 @@
             {zip: search},
             rating
         -->
+
+<script src="/js/search.js">

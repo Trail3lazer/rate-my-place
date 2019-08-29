@@ -45,11 +45,22 @@
 
                 <button type="submit" class="btn btn-primary" id="newComment-submit">Comment</button>
             </form>
-            <hr>
             <!-- END COMMENT OPTION -->
             <!-- Comments -->
             <div class="comments">
-                formatedComments
+                <ul class="list-group">
+                                {{#each comments}}
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <h5 class={{username}}></h5>
+                                        <div class={{text}}></div>
+                                        <div class="rating" id="{{@index}}-rating" data-rating={{rating}}></div>
+                                    </div>
+                                </li>
+                                {{/each}}
+                            </ul>
             </div>
             <!-- End Comments -->
         </div>
+
+        <script src="/js/place.js"></script>
