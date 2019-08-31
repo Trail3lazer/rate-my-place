@@ -4,16 +4,8 @@ const Op = Sequelize.Op;
 
 module.exports = function (app) {
   // Load index page
-  app.get("/", function (req, res) {
-    db.places.findAll({}).then(function (dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
 
-  app.get("/ratemyplace", function (req, res) {
+  app.get("/", function (req, res) {
     db['places'].findAll({})
       .then(function (table) {
 

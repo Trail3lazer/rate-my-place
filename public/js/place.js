@@ -3,6 +3,7 @@ $(() => {
     // ---     This section applies stars equal to the avg rating to each card ---
 
     let div = $(".rating")
+
     for (let cardIndex in div) {
         let rating = $(`#${cardIndex}-rating`).data("rating");
 
