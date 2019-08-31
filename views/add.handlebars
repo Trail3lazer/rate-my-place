@@ -1,51 +1,75 @@
-<h2>Add A Review</h2>
 
-<form>
+<h2 class="pt-4">Add A Review</h2>
+
+<form action="/api/places" method="POST" enctype="multipart/form-data">
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputEmail4">Name Of The Place</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Place Name">
+            <label >Name Of The Place</label>
+            <input type="name" name= "name" class="form-control" placeholder="Place Name">
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail4">Property Manger</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Name of the Manger">
+                <label >Property Manger</label>
+                <input type="manager" name="propMgr" class="form-control" placeholder="Name of the Manger">
             </div>
 
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail4">Street Address</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Street Address">
+                <label >Street Address</label>
+                <input type="address" name="streetAddress" class="form-control" placeholder="Street Address">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail4">City</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="City">
+                <label >City</label>
+                <input type="city" name="city" class="form-control" placeholder="City">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail4">State</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="State">
+                <label >State</label>
+                <input type="state" name="state" class="form-control" placeholder="State">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-2">
-                <label for="inputEmail4">Zip Code</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Zip Code">
+                <label >Zip Code</label>
+                <input type="postal code" name="zip" class="form-control" placeholder="Zip Code">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail4">Phone Number</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Phone Number">
+                <label >Phone Number</label>
+                <input type="phone" name= "phone" class="form-control" placeholder="Phone Number">
             </div>
         </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Website</label>
+                <input type="url" name= "website" class="form-control" placeholder="Phone Number">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Phone Number">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Profile Image URL</label>
+                <input type="link" name="img" class="form-control" placeholder="www.imgur.com">
+                <small>Maybe something like this? <a href"https://static.parade.com/wp-content/uploads/2018/03/golden-puppy-life-national-geographic-ftr-1.jpg">https://static.parade.com/wp-content/uploads/2018/03/golden-puppy-life-national-geographic-ftr-1.jpg</a></small>
+            </div>
+        </div>
+
 </form>

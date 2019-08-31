@@ -23,6 +23,10 @@ module.exports = function (app) {
       });
   })
 
+  app.get('/addmyplace', ()=>{
+    res.render('add')
+  })
+
   // Load example page and pass in an example by id
   app.get("/place/:id", function (req, res) {
     db.places.findOne({ where: { id: req.params.id } }).then(function (place) {
@@ -66,7 +70,7 @@ module.exports = function (app) {
       }
     })
       .then(function (places) {
-        if(places===[]){res.render('404')}
+        if(places.length === 0){res.render('notFound')}
         else{
         res.render("search", {
           cards: places
