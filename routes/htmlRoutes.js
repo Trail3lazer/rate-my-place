@@ -25,6 +25,7 @@ module.exports = function (app) {
       db.comments.findAll({ where: { placeKey: req.params.id } })
         .then(function (comments) {
           res.render("place", {
+            console: JSON.stringify(place),
             place: place,
             comments: comments
           });
