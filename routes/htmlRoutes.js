@@ -45,6 +45,7 @@ module.exports = function (app) {
       zip: p.zip,
       phone: p.phone,
       propType: p.propType
+      propURL: p.URL
     };
      
     let andArr = [];
