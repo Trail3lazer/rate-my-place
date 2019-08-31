@@ -10,5 +10,6 @@ module.exports = function(sequelize, DataTypes) {
     propMgr: DataTypes.STRING,
     ratingAvg: DataTypes.FLOAT, // Avg of comment reviews could be 0-5 SERVER GENERATED
     URL: DataTypes.STRING, // Not Null
+    img: DataTypes.STRING,
   });
 };
