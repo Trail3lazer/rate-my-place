@@ -191,3 +191,7 @@ footer .glyphicon {
     font-size: 150px;
   }
 }
+
+#cardPlace {
+  background-color: darkblue;
+}
