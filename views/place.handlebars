@@ -1,12 +1,12 @@
 <div class="jumbotron">
-    {{console}}
+
     <img src={{place.img}} alt="img">
     <h1 class="display-1">{{place.name}}</h1>
 
     <p class="lead">
         {{place.propType}}
     </p>
- 
+
     <hr>
 
     <p>
@@ -19,8 +19,7 @@
     </p>
     <p>
         <div class="d-inline-block">
-            {{place.ratingAvg}}
-            <span style="color: #FFE066"><i class="fas fa-star"></i></span>
+            <div class="rating" id="place-rating" data-rating={{place.ratingAvg}}></div>
         </div>
     </p>
 </div>
@@ -30,12 +29,19 @@
     <form class="form-group" id="newCommment">
         <h1>Add A Comment</h1>
 
-        <textarea class="form-control" name="text" id="newComment-text" rows="2"></textarea>
+        <div class="form-group">
+            <textarea class="form-control" name="text" id="newComment-text" placeholder="I loved... It could have been better if..." rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="newComments-img">Image URL</label>
+            <input class="form-control" type="url" name="img" id="newComments-img"
+                placeholder="https://_put-a-link-to-your-picture-here_.jpg">
+        </div>
 
         <div class="form-group">
             <label for="rating-select">Star Rating</label>
             <select class="form-control" name="rating" id="rating-select">
-                <option>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -43,6 +49,12 @@
                 <option>5</option>
             </select>
         </div>
+
+        <ghostData class="form-group">
+            <input type="hidden" name="placeKey" value={{place.id}} />
+            <input type="hidden" name="username" {{#if users.username}} value={{users.username}} {{else}} value="Anonymous" {{/if}}/>
+        
+        </ghostData>
 
         <button type="submit" class="btn btn-primary" id="newComment-submit">Comment</button>
     </form>
