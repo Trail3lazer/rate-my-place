@@ -18,16 +18,19 @@ $(() => {
 
     $("#newComment-submit").click((e)=>{
         e.preventDefault()
-        let newComment = $("#newComment").serializeArray()
-        console.log(newComment)
+        let newComment = $("#newCommment").serializeArray()
+        let commentObj = {}
+ 
+
+        for (let i in newComment){
+            let idxObj = newComment[i];
+            commentObj[idxObj.name] = idxObj.value
+        }
+
         $.ajax({
             type: "post",
-            url: "url",
-            data: "data",
-            dataType: "dataType",
-            success: function (response) {
-                
-            }
+            url: "/api/comments",
+            data: commentObj,
         });
     })
 })

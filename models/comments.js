@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
         userId: DataTypes.INTEGER,
         placeKey: DataTypes.INTEGER, // not null
         rating: DataTypes.INTEGER, // not null 0-5
-        pictures: DataTypes.STRING, // Not null url?
+        img: DataTypes.STRING, // Not null url?
         text: DataTypes.TEXT,
         username: DataTypes.STRING
       })
