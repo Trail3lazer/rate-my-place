@@ -16,13 +16,14 @@ $(() => {
     }
     // --- stars finish
 
-    $("#newComment-submit").click((e)=>{
+
+    $("#newComment-submit").click((e) => {
         e.preventDefault()
         let newComment = $("#newCommment").serializeArray()
         let commentObj = {}
- 
 
-        for (let i in newComment){
+
+        for (let i in newComment) {
             let idxObj = newComment[i];
             commentObj[idxObj.name] = idxObj.value
         }
@@ -31,6 +32,15 @@ $(() => {
             type: "post",
             url: "/api/comments",
             data: commentObj,
+            success: (data) => {
+                let placeId = data.placeKey;
+                $.ajax({
+                    type: "PUT",
+                    url: "/api/rating/" + placeId,
+                })
+            }
         });
-    })
-})
+
+        setTimeout(()=>{location.reload()}, 100)
+    });
+});
