@@ -1,4 +1,5 @@
 <div class="jumbotron">
+    <img src={{place.img}} alt="img">
     <h1 class="display-1">{{place.name}}</h1>
 
     <p class="lead">
@@ -14,12 +15,13 @@
         <i class="fas fa-phone-alt"></i> {{place.phone}}
         <br />
         <i class="fas fa-briefcase"></i> {{place.propMgr}}
-    </p>
-    <p>
-        <div class="d-inline-block">
-            {{place.ratingAvg}}
-            <span style="color: #FFE066"><i class="fas fa-star"></i></span>
-        </div>
+        <br />
+        <i class="fa fa-hand-pointer-o" aria-hidden="true"></i> {{place.URL}} 
+        </p> <p>
+            <div class="d-inline-block">
+                {{place.ratingAvg}}
+                <span style="color: #FFE066"><i class="fas fa-star"></i></span>
+            </div>
     </p>
 </div>
 
@@ -51,8 +53,9 @@
     <ul class="list-group">
         {{#each comments}}
         <li class="list-group-item">
-            <div class="row">
+            <div>
                 <h5>{{username}}</h5>
+                <p>{{createdAt}}</p>
                 <div>{{text}}</div>
                 <div class="rating" id="{{@index}}-rating" data-rating={{rating}}></div>
             </div>

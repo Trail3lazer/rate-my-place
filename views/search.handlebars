@@ -17,23 +17,24 @@
              -->
 
 <!-- RESULTS DIV (READ) -->
-<div class="m-4">I MADE THIS FOR YOU!!!!!</div>
+
 <div class="card-deck col-12 bg-white" id="results-container">
     {{#each cards}}
     <a class="container col-lg-3 col-" href="/place/{{id}}">
         <div class="card place-card m-2" data-placeId={{id}} type="button">
             {{#if img}}
-            <img class="card-img-top d-flex col-12" src={{img}} alt="Card image cap">
+            <img class="card-img-top d-flex col-12" style="height: 200px" src={{img}} alt="Card image cap">
             {{else}}
             <img class="card-img-top d-flex col-12 p-0" src="https://via.placeholder.com/300x200/B5D8FF/808080?Text=Add/" alt="Card image cap">
             {{/if}}
-            <div class="card-img-overlay text-light">
-                <h5 class="card-title">{{name}}</h5>
+            <div class="card-img-overlay">        
             </div>
             <div class="card-body">
+                 <h5 class="card-title">{{name}}</h5>
                 <p>
                     {{streetAddress}} <br>
                     {{city}}, {{state}} {{zip}}
+                    <br>
                 </p>
                 <p>
                     <div class="d-inline-block rating" data-rating={{ratingAvg}} id="{{@index}}-rating"></div>

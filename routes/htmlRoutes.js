@@ -4,16 +4,8 @@ const Op = Sequelize.Op;
 
 module.exports = function (app) {
   // Load index page
-  app.get("/", function (req, res) {
-    db.places.findAll({}).then(function (dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
 
-  app.get("/ratemyplace", function (req, res) {
+  app.get("/", function (req, res) {
     db['places'].findAll({})
       .then(function (table) {
 
@@ -33,6 +25,7 @@ module.exports = function (app) {
       db.comments.findAll({ where: { placeKey: req.params.id } })
         .then(function (comments) {
           res.render("place", {
+            console: JSON.stringify(place),
             place: place,
             comments: comments
           });
@@ -51,7 +44,8 @@ module.exports = function (app) {
       state: p.state,
       zip: p.zip,
       phone: p.phone,
-      propType: p.propType
+      propType: p.propType,
+      propURL: p.URL
     };
      
     let andArr = [];
