@@ -15,7 +15,8 @@
 
   // used to deserialize the user
   passport.deserializeUser(function(id, done) {
-      User.findById(id).then(function(user) {
+    console.log(id);
+      User.findByPk(id).then(function(user) {
         if(user){
           done(null, user.get());
         }
@@ -58,7 +59,7 @@
         firstname: req.body.firstname,
         lastname: req.body.lastname
         };
-
+        console.log(req.body.firstname, req.body.lastname);
 
         User.create(data).then(function(newUser,created){
           if(!newUser){

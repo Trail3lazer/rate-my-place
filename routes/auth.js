@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
       failureRedirect: "/signup"
     })
   );
-
+    
   app.get("/index", isLoggedIn, authController.index);
 
   app.get("/logout", authController.logout);
@@ -24,12 +24,23 @@ module.exports = function(app, passport) {
       failureRedirect: "/signin"
     })
   );
+  
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
+        console.log("logged in")
       return next();
     }
 
     res.redirect("/signin");
-  }
+  };
+  
+//   router.get('/checkauth', isAuthenticated, function(req, res){
+
+//     res.status(200).json({
+//         status: 'Login successful!'
+//     });
+
+
+
 };
