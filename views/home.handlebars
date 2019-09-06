@@ -1,0 +1,179 @@
+ <!-- nav bar area  -->
+ <nav class="navbar navbar-default navbar-fixed-top">
+        
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#myPage">Rate My Place</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+           
+            {{!-- <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">OPTIONS</a></li>
+
+                <li><a href="#feature">SEARCH</a></li>
+
+                <li><a href="#contact">CONTACT</a></li>
+            </ul> --}}
+         <form>
+        <div class="input-group">
+            
+            <input type="search" class="form-control" size="50"
+                placeholder="Search.... For a City or Name Of The Place" required>
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-danger">Submit</button>
+            </div>
+        </div>
+    </form>
+
+        </div>
+    </div>
+</nav>
+<!-- search and welcome page  -->
+<div class="jumbotron text-center">
+    <h1>Welcome</h1>
+   </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>About the page</h2><br>
+            <h3>RateMyPlace is a rating and review site, provides the most objective and comprehensive information
+                for apartment/house/basement across the state of Utah. </h3><br>
+            <h3>The information on this site is collected from a variety of sources to provide an in-depth view of
+                each apartment/house/basement community so you can make an informed decision about your next home.
+            </h3>
+            <br>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-map-marker"></span>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-grey">
+    <div class="row">
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-globe logo slideanim"></span>
+        </div>
+        <div class="col-sm-8">
+            <h2>Our Values</h2><br>
+            <h5><strong>Trust:</strong> We count on and support one another individually and as team members.</h5>
+            <br>
+            <p><strong> Excellence:</strong> We perform at the highest level, always learning and looking for ways
+                to improve.
+                <p><strong> Accountability:</strong> We accept responsibility for our actions</p>
+        </div>
+    </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+    <h2 class="text-center">RENTERS ADVICE AND RESOURCES</h2>
+    <div class="row">
+        {{!-- <h4>What we offer</h4> --}}
+        <br>
+        <div class="row slideanim">
+            <div class="col-lg-4"></div>
+                <div class = "col-lg-4">
+                 <img src="https://img.icons8.com/pastel-glyph/64/000000/taxi-location.png">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                </div>
+                <div class="col-lg-4" >
+                        {{!-- .col-lg-4{magin-left: 33%} --}}
+                </div>
+                <a class="" href="/search"><h4>Click Here To Begin</h4></a>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+
+    <h2>What our customers say</h2>
+    <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+       
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <h5>"This Website is the best. I am so happy with the results!"<br><span>Michael Roe</span></h5>
+            </div>
+            <div class="item">
+                <h5>"One word... WOW!!"<br><span>Jon Sidhu, Appartment, Meadowbrook Apartment</span></h5>
+            </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+
+<!-- Container (Contact Section) -->
+{{!-- <div id="contact" class="container-fluid bg-grey">
+    <h2 class="text-center">CONTACT</h2>
+    <div class="row">
+        <div class="col-sm-5">
+            <p>Contact us and we'll get back to you within 24 hours.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Sandy, UT</p>
+            <p><span class="glyphicon glyphicon-phone"></span> +8015694692</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+        </div>
+
+        <div class="col-sm-7 slideanim">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment"
+                rows="5"></textarea><br>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <button class="btn btn-default pull-right" type="submit">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+<!-- Image of location/map -->
+
+
+<footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+
+</footer>
+
+<script src="/styles/index.js"></script>
