@@ -33,7 +33,7 @@ module.exports = function (app) {
       });
   })
 
-  app.get('/addmyplace', ()=>{
+  app.get('/addmyplace', (req, res)=>{
     res.render('add')
   })
 
