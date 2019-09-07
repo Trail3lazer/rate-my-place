@@ -16,6 +16,8 @@ h4 {
   color: #303030;
   font-weight: 400;
   margin-bottom: 30px;
+  text-align: center;
+  width: 830%
 }  
 .jumbotron {
   background-color: black;
@@ -117,7 +119,7 @@ h4 {
   font-family: Montserrat, sans-serif;
 }
 .navbar li a, .navbar .navbar-brand {
-  color: #fff !important;
+  color: black !important;
 }
 .navbar-nav li a:hover, .navbar-nav li.active a {
   color: #f4511e !important;
@@ -151,11 +153,21 @@ footer .glyphicon {
 }
 
 .glyphicon.glyphicon-home{
+  
   color: black;
   font-size: 150px;
   align-content: center
 }
 
+/* .glyphicon.glyphicon-home:before {
+  content: "\e021";
+} */
+#addingStyle{
+  background-color: #f4511e;
+}
+.col-lg-4 {
+  margin-left: 180%
+}
 @keyframes slide {
   0% {
     opacity: 0;
@@ -190,8 +202,4 @@ footer .glyphicon {
   .logo {
     font-size: 150px;
   }
-}
-
-#cardPlace {
-  background-color: darkblue;
 }

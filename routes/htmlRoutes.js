@@ -9,7 +9,27 @@ module.exports = function (app) {
     db['places'].findAll({})
       .then(function (table) {
 
+        res.render("home", {
+          cards: table
+        });
+      });
+  })
+
+  app.get("/search", function (req, res) {
+    db['places'].findAll({})
+      .then(function (table) {
+
         res.render("search", {
+          cards: table
+        });
+      });
+  })
+
+  app.get("/editProfile", function (req, res) {
+    db['places'].findAll({})
+      .then(function (table) {
+
+        res.render("editProfile", {
           cards: table
         });
       });
