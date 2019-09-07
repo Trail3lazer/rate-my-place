@@ -128,16 +128,17 @@
           </div>
         </li>
 
-   <li class="nav-item float-right">
-          {{!-- <p>hello: {{firstname}} </p> --}}
-          {{!-- <h1>test</h1> --}}
-            {{#if firstname}}
+       <li class="nav-item" id="nav-nmspot">
+          {{!-- <p>hello: {{firstname}} </p>
+          <h1>test</h1> --}}
+             {{#if firstname}}
             <p>Hello {{firstname}}</p>
+              <p><a href="/logout">logout</a> </p>
             {{else}}
-            <p>Please <a href='/signin'>Log In</a></p>
+            <p> <a href='/signin'>Log In</a></p>
             {{/if}}
-        </li>
-        
+        </li> 
+
       </ul>
     </div>
   </nav>

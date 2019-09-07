@@ -8,18 +8,18 @@ module.exports = function(app, passport) {
   app.post(
     "/signup",
     passport.authenticate("local-signup", {
-      successRedirect: "/",
+      successRedirect: "/editProfile",
       failureRedirect: "/signup"
     })
   );
     
-  app.get("/index", isLoggedIn, authController.index);
+  app.get("/index", authController.index);
 
   app.get("/editProfile", isLoggedIn, authController.editProfile);
 
   // app.get("/place/:id", authController.place); 
 
-  app.get("/", isLoggedIn, authController.home);
+  // app.get("/" , authController.home,);
 
 
 
@@ -28,7 +28,7 @@ module.exports = function(app, passport) {
   app.post(
     "/signin",
     passport.authenticate("local-signin", {
-      successRedirect: "/",
+      successRedirect: "/editProfile",
       failureRedirect: "/signin"
     })
   );

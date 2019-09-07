@@ -18,18 +18,19 @@ module.exports.editProfile = function(req, res) {
 };
 
 
-module.exports.home = function(req, res) {
-  res.render("home", { firstname: req.user.firstname });
-};
+// module.exports.home = function(req, res) {
+
+//   res.render("home", { firstname: req.user.firstname });
+// };
 
 module.exports.place = function(req, res) {
   res.render("place",  { firstname: req.user.firstname });
 };
 
 
-// module.exports.editProfile = function(req, res) {
-//   res.render("editProfile", { firstname: req.user.firstname });
-// };
+module.exports.editProfile = function(req, res) {
+  res.render("editProfile", { firstname: req.user.firstname });
+};
 
 module.exports.logout = function(req, res) {
   req.session.destroy(function(err) {
