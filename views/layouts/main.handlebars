@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/styles.css">
 </head>
+
 <body>
 
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light border-top border-info border-3">
@@ -33,7 +34,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <h2 class="m-1 nav-icon">
-            <i class="fas fa-cog"></i>
+              <i class="fas fa-cog"></i>
             </h2>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,8 +46,8 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link dropdown dropdown-toggle " href="#" id="navbarSearchDropdown" data-toggle="dropdown" role="button" 
-            aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown dropdown-toggle " href="#" id="navbarSearchDropdown" data-toggle="dropdown"
+            role="button" aria-haspopup="true" aria-expanded="false">
             <h2 class="m-1 nav-icon">
               <i class="fas fa-search"></i>
             </h2>
@@ -100,22 +101,27 @@
                 <div class="form-group col-md-6 text-right">
                   <br>
                   <div class="container">
-                    <button type="button" class="btn btn-outline-success mt-2 col-12" 
+                    <button type="button" class="btn btn-outline-success mt-2 col-12"
                       id="submitSeachBtn">Search</button>
                   </div>
                 </div>
-                <div class="form-group col-md-3">
-                  <select class="custom-select form-control" name="sort">
-                    <option value="name" selected>Name </option>
-                    <option value="ratingAvg">Rating</option>
-                    <option value="createdAt">Date Posted</option>>
-                  </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <select class="custom-select form-control" name="sortDirection">
-                    <option value="DESC" selected>Descending</option>
-                    <option value="ASC">Ascending</option>
-                  </select>
+                <div class="container col-md-6">
+                  <label for="sort">Sort By</label>
+                  <div class="row">
+                    <div class="form-group col-7">
+                      <select class="custom-select form-control" name="sort">
+                        <option value="name" selected>Name </option>
+                        <option value="ratingAvg">Rating</option>
+                        <option value="createdAt">Date Posted</option>>
+                      </select>
+                    </div>
+                    <div class="form-group col-5">
+                      <select class="custom-select form-control" name="sortDirection">
+                        <option value="DESC" selected>Descending</option>
+                        <option value="ASC">Ascending</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
               </div>
             </form>
