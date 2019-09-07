@@ -36,15 +36,24 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a href="/addmyplace">Add A Place</a>
-            <a class="dropdown-item" href="#">Sign Up</a>
-            <a class="dropdown-item" href="#">Log in</a>
+            <a class="dropdown-item" href="/signup">Sign Up</a>
+            <a class="dropdown-item" href="/signin">Log in</a>
             <a class="dropdown-item" href="/editProfile">Edit Profile</a>
           </div>
         </li>
 
-        <li class="nav-item float-right">
-          <p>hello: {{firstname}} </p>
-        </li>
+
+          {{!-- <header> --}}
+{{!--             
+          </header>
+
+           <li class="nav-item float-right">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarSearchDropdown" role="button" data-toggle="dropdown"
+          <a class="nav-link dropdown dropdown-toggle" href="#" id="navbarSearchDropdown" data-toggle="dropdown" role="button" 
+            aria-haspopup="true" aria-expanded="false">
+            Search
+          </a> --}}
+
         <li class="nav-item float-right">
           <a class="nav-link dropdown-toggle" href="#" id="navbarSearchDropdown" role="button" data-toggle="dropdown"
           <a class="nav-link dropdown dropdown-toggle" href="#" id="navbarSearchDropdown" data-toggle="dropdown" role="button" 
@@ -121,6 +130,17 @@
             </form>
           </div>
         </li>
+
+   <li class="nav-item float-right">
+          {{!-- <p>hello: {{firstname}} </p> --}}
+          {{!-- <h1>test</h1> --}}
+            {{#if firstname}}
+            <p>Hello {{firstname}}</p>
+            {{else}}
+            <p>Please <a href='/signin'>Log In</a></p>
+            {{/if}}
+        </li>
+        
       </ul>
     </div>
   </nav>

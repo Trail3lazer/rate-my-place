@@ -1,5 +1,8 @@
 var db = require("../models");
 
+var authController = require("../controllers/authcontroller");
+
+
 module.exports = function (app) {
   // Load index page
 
@@ -12,6 +15,9 @@ module.exports = function (app) {
         });
       });
   })
+
+  // authController.index,
+
 
   app.get("/search", function (req, res) {
     db['places'].findAll({})

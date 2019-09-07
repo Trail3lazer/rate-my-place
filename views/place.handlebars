@@ -4,8 +4,6 @@
 
     <p class="lead">
         Property Type: {{place.propType}}
-
-        Hello: {{user.firstname}} 
     </p>
 
     <hr>
@@ -58,7 +56,7 @@
         <ghostData class="form-group">
             <input type="hidden" name="placeKey" value={{place.id}} />
 
-            <input type="hidden" name="username" {{#if users.username}} value={{users.username}} {{else}}
+            <input type="hidden" name="username" {{#if users.firstname}} value={{users.firstname}} {{else}}
                 value="Anonymous" {{/if}} />
             <input type="hidden" name="userId" {{#if users.userId}} value={{users.userId}} {{else}} value="1" {{/if}} />
 
