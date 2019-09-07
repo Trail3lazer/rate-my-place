@@ -1,4 +1,6 @@
 var db = require("../models");
+const Sequelize = require("sequelize")
+const Op = Sequelize.Op;
 
 let refreshRatingAvg = (placeid) => {
   db.comments.findAll({
@@ -15,11 +17,11 @@ let refreshRatingAvg = (placeid) => {
 
     db.places.update({
       ratingAvg: newPlaceAvg
-    },{
-      where: {
-        id: placeid
-      }
-    }).then(()=>{return})
+    }, {
+        where: {
+          id: placeid
+        }
+      }).then(() => { return })
   })
 }
 
@@ -90,6 +92,42 @@ module.exports = function (app) {
 
   app.put(`/api/rating/:id`, function (req, res) {
     refreshRatingAvg(req.params.id);
+  });
+
+  // Search Query
+  app.get("/api/search/:name/:propMgr/:streetAddress/:city/:state/:zip/:phone/:propType/:sort/:sortDirection", function (req, res) {
+    let options = req.params;
+    let sort;
+    let sortDirection;
+    
+    let andArr = [];
+    for (let key in options) {
+      if (key === "sort"){sort = options[key]}
+      else if (key === "sortDirection"){sortDirection = options[key]}
+      else if (options[key] !== "-") {
+        options[key] = options[key].replace(/(%20)/g, ' ')
+        andArr.push(
+          { [key]: options[key] }
+        )
+      }
+    }
+
+    db.places.findAll({
+      where: {
+        [Op.and]: andArr
+      },
+      order: [
+        [sort, sortDirection]
+      ]
+    })
+      .then(function (places) {
+        if (places.length === 0) { res.render('notFound') }
+        else {
+          res.send(places)
+        }
+      }
+      )
+      .catch((err) => { if (err) { console.log(err) } })
   });
 
   // End of exports

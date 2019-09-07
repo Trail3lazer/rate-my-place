@@ -20,7 +20,7 @@ h4 {
   width: 830%
 }  
 .jumbotron {
-  background-color: black;
+  background-color: rgb(0, 33, 69);
   color: #fff;
   padding: 100px 25px;
   font-family: Montserrat, sans-serif;
@@ -106,20 +106,6 @@ h4 {
   margin: 15px 0;
   background-color: #f4511e;
   color: #fff;
-}
-.navbar {
-  margin-bottom: 0;
-  background-color:black;
-  z-index: 9999;
-  border: 0;
-  font-size: 12px !important;
-  line-height: 1.42857143 !important;
-  letter-spacing: 4px;
-  border-radius: 0;
-  font-family: Montserrat, sans-serif;
-}
-.navbar li a, .navbar .navbar-brand {
-  color: black !important;
 }
 .navbar-nav li a:hover, .navbar-nav li.active a {
   color: #f4511e !important;
