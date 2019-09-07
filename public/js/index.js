@@ -11,7 +11,7 @@ const card = (index, place) => {
                     ${place.streetAddress}
                     ${place.city}, ${place.state} ${place.zip}
                     <br>
-                    <div class="d-inline-block place-rating" data-rating=${place.ratingAvg} id="${index}-place-rating"></div>
+                    <div class="d-inline-block place-rating ${index}-place-rating" data-rating=${place.ratingAvg}></div>
             </div>
         
     </a>`)
@@ -26,16 +26,16 @@ let placeStarMaker = () => {
     let div = $(".place-rating")
 
     for (let index in div) {
-        let rating = $(`#${index}-place-rating`).data("rating")
+        let rating = $(`.${index}-place-rating`).data("rating")
 
         for (let i = 0; i < rating; i++) {
-            $(`#${index}-place-rating`).append(`<span style="color: #FFE066"><i class="fas fa-star"></i></span>`)
+            $(`.${index}-place-rating`).append(`<span style="color: #FFE066"><i class="fas fa-star"></i></span>`)
         }
     }
 };
 
 let getCards = () => {
-    $("#results-container").empty()
+    $(".results-container").empty()
 
     let parameters = $('#searchParams').serializeArray();
 
@@ -52,7 +52,7 @@ let getCards = () => {
         url: "/api/search/" + formattedParams,
         success: function (cards) {
             cards.map((value, index) => {
-                $("#results-container").append(card(index, value))
+                $(".results-container").append(card(index, value))
             })
             placeStarMaker()
         }
@@ -63,7 +63,9 @@ $(() => {
     $("#submitSeachBtn").click((e) => {
         e.preventDefault();
         getCards();
+        if (!$('#sidebar').hasClass("active")){
         $('#sidebar').toggleClass('active');
+        }
     })
 
     $('#sidebarCollapse').on('click', function () {
