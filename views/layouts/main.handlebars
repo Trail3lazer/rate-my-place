@@ -10,15 +10,15 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/styles.css">
 </head>
-
 <body>
 
-  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light border-top border-info border-3">
     <button type="button" id="sidebarCollapse" class="btn btn-success mx-3">
-      <i class="fas fa-align-left"></i>
+      <i class="fas fa-bars"></i>
     </button>
 
     <a class="navbar-brand" href="/">Rate My Place</a>
@@ -32,10 +32,12 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Options
+            <h2 class="m-1 nav-icon">
+            <i class="fas fa-cog"></i>
+            </h2>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="/addmyplace">Add A Place</a>
+            <a class="dropdown-item" href="/addmyplace">Add A Place</a>
             <a class="dropdown-item" href="#">Sign Up</a>
             <a class="dropdown-item" href="#">Log in</a>
             <a class="dropdown-item" href="/editProfile">Edit Profile</a>
@@ -43,9 +45,11 @@
         </li>
 
         <li class="nav-item float-right">
-          <a class="nav-link dropdown dropdown-toggle" href="#" id="navbarSearchDropdown" data-toggle="dropdown" role="button" 
+          <a class="nav-link dropdown dropdown-toggle " href="#" id="navbarSearchDropdown" data-toggle="dropdown" role="button" 
             aria-haspopup="true" aria-expanded="false">
-            Search
+            <h2 class="m-1 nav-icon">
+              <i class="fas fa-search"></i>
+            </h2>
           </a>
           <div class="dropdown-menu col-6 p-3" aria-labelledby="navbarSearchDropdown">
             <form id="searchParams">
@@ -96,7 +100,7 @@
                 <div class="form-group col-md-6 text-right">
                   <br>
                   <div class="container">
-                    <button type="button" class="btn btn-outline-success mt-2 col-12"
+                    <button type="button" class="btn btn-outline-success mt-2 col-12" 
                       id="submitSeachBtn">Search</button>
                   </div>
                 </div>
@@ -121,17 +125,17 @@
     </div>
   </nav>
 
-  <div class="m-4">I MADE THIS FOR YOU!!!!!</div>
+  <div class="mt-4 mb-2">I MADE THIS FOR YOU!!!!!</div>
 
   <div class="wrapper d-flex align-self-stretch">
 
     <!-- Sidebar -->
-    <nav class="" id="sidebar">
-      <div class="sidebar-header text-center">
+    <nav class="mt-5" id="sidebar">
+      <div class="sidebar-header text-white text-center">
         <h3>Places</h3>
       </div>
 
-      <div class="list-group col-12 text-center" id="results-container">
+      <div class="list-group col-12 text-center results-container">
       </div>
 
     </nav>
@@ -143,7 +147,7 @@
 
     </div>
 
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -153,6 +157,9 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
     <script src="/js/index.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 
 </html>
