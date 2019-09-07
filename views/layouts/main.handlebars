@@ -38,9 +38,9 @@
             </h2>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/addmyplace">Add A Place</a>
-            <a class="dropdown-item" href="#">Sign Up</a>
-            <a class="dropdown-item" href="#">Log in</a>
+            <a href="/addmyplace">Add A Place</a>
+            <a class="dropdown-item" href="/signup">Sign Up</a>
+            <a class="dropdown-item" href="/signin">Log in</a>
             <a class="dropdown-item" href="/editProfile">Edit Profile</a>
           </div>
         </li>
@@ -127,6 +127,18 @@
             </form>
           </div>
         </li>
+
+       <li class="nav-item" id="nav-nmspot">
+          {{!-- <p>hello: {{firstname}} </p>
+          <h1>test</h1> --}}
+             {{#if firstname}}
+            <p>Hello {{firstname}}</p>
+              <p><a href="/logout">logout</a> </p>
+            {{else}}
+            <p> <a href='/signin'>Log In</a></p>
+            {{/if}}
+        </li> 
+
       </ul>
     </div>
   </nav>

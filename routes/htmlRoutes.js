@@ -1,33 +1,23 @@
 var db = require("../models");
 
+var authController = require("../controllers/authcontroller");
+
+
 module.exports = function (app) {
   // Load index page
 
   app.get("/", function (req, res) {
     db['places'].findAll({})
       .then(function (table) {
-        let transitions = [];
-        let counter = 0;
-        for (let i in table){
-          counter++;
-          if (counter>3){
-            counter = 1;
-          } 
-          
-          if (counter===3) {
-            table[i].transition = 'fade-left'
-          } else if (counter===2){
-            table[i].transition = 'fade-down'
-          } else if (counter===1){
-            table[i].transition = 'fade-right'
-          }
-          
-        }
+
         res.render("home", {
           cards: table
         });
       });
   })
+
+  // authController.index,
+
 
   app.get("/search", function (req, res) {
     db['places'].findAll({})
