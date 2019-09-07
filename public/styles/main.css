@@ -38,3 +38,45 @@ a, a:hover, a:focus {
 .dropdown-toggle::after {
     display:none;
 }
+
+.border-3 {
+    border-width:5px !important;
+}
+
+body {
+    position: relative;
+}
+
+.jumboTitle {
+    position: absolute;
+    right: 0%;
+    top: 20px;
+    left: 0%;
+    z-index: -1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(0, 33, 69, 80%);
+}
+
+.body-about {
+    z-index: 1000 !important;
+    margin-top: -30% !important;
+    background-color: rgba(203, 228, 242, .8)
+}
+
+.body-values {
+    z-index: 1000 !important;
+    background-color: rgba(203, 228, 242, .8)
+}
+
+.carousel {
+    z-index: -2 !important; /* The fixed navbar has a z-index of 10 */
+}
+
+.nav-icon {
+    color: rgba(0, 33, 69, 80%);
+}
+
+.dropdown-toggle {
+    padding: 0px !important;
+}

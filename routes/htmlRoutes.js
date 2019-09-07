@@ -9,7 +9,23 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     db['places'].findAll({})
       .then(function (table) {
-
+        let transitions = [];
+        let counter = 0;
+        for (let i in table){
+          counter++;
+          if (counter>3){
+            counter = 1;
+          } 
+          
+          if (counter===3) {
+            table[i].transition = 'fade-left'
+          } else if (counter===2){
+            table[i].transition = 'fade-down'
+          } else if (counter===1){
+            table[i].transition = 'fade-right'
+          }
+          
+        }
         res.render("home", {
           cards: table
         });

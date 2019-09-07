@@ -1,12 +1,47 @@
 <!-- search and welcome page  -->
-<div class="jumbotron text-center">
-    <h1>Welcome {{firstname}} </h1>
+<div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100 carousel-img"
+                src="https://media.cntraveler.com/photos/5b76578acfb18b1958082162/16:9/w_1440,c_limit/GettyImages-483321349.jpg"
+                alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 carousel-img"
+                src="https://media.architecturaldigest.com/photos/5ad5018c2204b06f8e237fa8/16:9/w_2560%2Cc_limit/Banks%252520Peninsula%2C%252520New%252520Zealand.jpg"
+                alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 carousel-img"
+                src="https://media.architecturaldigest.com/photos/5ad5033f70a2ae02828265f5/master/w_1600%2Cc_limit/Heidelberg%2C%252520South%252520Africa.jpg"
+                alt="Third slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 carousel-img"
+                src="https://media.architecturaldigest.com/photos/5ad503b370a2ae02828265f9/master/w_1600%2Cc_limit/Vals%2C%252520Switzerland.jpg"
+                alt="4th slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 carousel-img"
+                src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/03/05/12/bar-0.jpg?width=1368&height=912&fit=bounds&format=pjpg&auto=webp&quality=70"
+                alt="5th slide">
+        </div>
+    </div>
 </div>
+
+
+<div class="container-fluid jumboTitle mt-5">
+    <div class="text-center display-1 text-white">
+        <h1>Welcome</h1>
+        <i class="fas fa-home"></i>
+    </div>
+</div>
+
 
 <!-- Container (About Section) -->
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-8">
+    <div data-aos="fade-up" data-aos-delay="4000">
+        <div class="container body-about p-2 col-sm-8 text-dark rounded">
             <h2>About the page</h2><br>
             <h3>RateMyPlace is a rating and review site, provides the most objective and comprehensive information
                 for apartment/house/basement across the state of Utah. </h3><br>
@@ -15,38 +50,33 @@
             </h3>
         </div>
     </div>
-</div>
 
-<div class="container-fluid bg-grey">
-    <div class="row">
-        <div class="col-sm-8">
-            <h2>Our Values</h2><br>
-            <h5><strong>Trust:</strong> We count on and support one another individually and as team members.</h5>
-            <br>
-            <p><strong> Excellence:</strong> We perform at the highest level, always learning and looking for ways
-                to improve.
-                <p><strong> Accountability:</strong> We accept responsibility for our actions</p>
+    <div data-aos="fade-up" data-aos-delay="4000">
+        <div class="container-fluid body-values text-dark mt-5 pt-5">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Our Values</h2><br>
+                    <h5><strong>Trust:</strong> We count on and support one another individually and as team members.
+                    </h5>
+                    <h5><strong> Excellence:</strong> We perform at the highest level, always learning and looking for
+                        ways
+                        to
+                        improve. </h5>
+                    <h5><strong> Accountability:</strong> We accept responsibility for our actions.</h5>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Container (Services Section) -->
-{{!-- <div id="services" class="container-fluid text-center">
-    <h2 class="text-center">RENTERS ADVICE AND RESOURCES</h2>
-
-        <br>
-
-        <a class="" href="/search">
-            <h3>Click Here To Begin</h3>
-        </a>
-</div> --}}
-
-
-
-<div class="card-deck col-12 bg-black" id="results-container">
+<!--               START OF CARDS                 -->
+<div class="card-deck col-12 card-results-container">
     {{#each cards}}
-    <a class="container col-lg-3 col-" href="/place/{{id}}">
-        <div class="card place-card m-2" data-placeId={{id}} type="button">
+
+    <a class="col-4" href="/place/{{id}}">
+
+        <div class="card place-card m-2" data-placeId={{id}} type="button" data-aos={{transition}}>
+
             {{#if img}}
             <img class="card-img-top d-flex col-12" style="height: 200px" src={{img}} alt="Card image cap">
             {{else}}
@@ -60,12 +90,13 @@
                 <p>
                     {{streetAddress}} <br>
                     {{city}}, {{state}} {{zip}}
-                    <br>
+
                 </p>
-                <p>
-                    <div class="d-inline-block place-rating" data-rating={{ratingAvg}} id="{{@index}}-place-rating">
-                    </div>
-                </p>
+
+                <div class="d-inline-block card-place-rating" id="card-{{@index}}-place-rating"
+                    data-rating={{ratingAvg}}>
+                </div>
+
             </div>
         </div>
     </a>
@@ -81,4 +112,4 @@
 
 </footer>
 
-<script src="/styles/index.js"></script>
+<script src="/js/search.js"></script>
