@@ -16,9 +16,11 @@ h4 {
   color: #303030;
   font-weight: 400;
   margin-bottom: 30px;
+  text-align: center;
+  width: 830%
 }  
 .jumbotron {
-  background-color: black;
+  background-color: rgb(0, 33, 69);
   color: #fff;
   padding: 100px 25px;
   font-family: Montserrat, sans-serif;
@@ -105,20 +107,6 @@ h4 {
   background-color: #f4511e;
   color: #fff;
 }
-.navbar {
-  margin-bottom: 0;
-  background-color:black;
-  z-index: 9999;
-  border: 0;
-  font-size: 12px !important;
-  line-height: 1.42857143 !important;
-  letter-spacing: 4px;
-  border-radius: 0;
-  font-family: Montserrat, sans-serif;
-}
-.navbar li a, .navbar .navbar-brand {
-  color: #fff !important;
-}
 .navbar-nav li a:hover, .navbar-nav li.active a {
   color: #f4511e !important;
   background-color: #fff !important;
@@ -151,11 +139,21 @@ footer .glyphicon {
 }
 
 .glyphicon.glyphicon-home{
+  
   color: black;
   font-size: 150px;
   align-content: center
 }
 
+/* .glyphicon.glyphicon-home:before {
+  content: "\e021";
+} */
+#addingStyle{
+  background-color: #f4511e;
+}
+.col-lg-4 {
+  margin-left: 180%
+}
 @keyframes slide {
   0% {
     opacity: 0;
@@ -190,8 +188,4 @@ footer .glyphicon {
   .logo {
     font-size: 150px;
   }
-}
-
-#cardPlace {
-  background-color: darkblue;
 }

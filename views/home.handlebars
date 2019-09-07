@@ -1,0 +1,84 @@
+<!-- search and welcome page  -->
+<div class="jumbotron text-center">
+    <h1>Welcome</h1>
+</div>
+
+<!-- Container (About Section) -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>About the page</h2><br>
+            <h3>RateMyPlace is a rating and review site, provides the most objective and comprehensive information
+                for apartment/house/basement across the state of Utah. </h3><br>
+            <h3>The information on this site is collected from a variety of sources to provide an in-depth view of
+                each apartment/house/basement community so you can make an informed decision about your next home.
+            </h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-grey">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>Our Values</h2><br>
+            <h5><strong>Trust:</strong> We count on and support one another individually and as team members.</h5>
+            <br>
+            <p><strong> Excellence:</strong> We perform at the highest level, always learning and looking for ways
+                to improve.
+                <p><strong> Accountability:</strong> We accept responsibility for our actions</p>
+        </div>
+    </div>
+</div>
+
+<!-- Container (Services Section) -->
+{{!-- <div id="services" class="container-fluid text-center">
+    <h2 class="text-center">RENTERS ADVICE AND RESOURCES</h2>
+
+        <br>
+
+        <a class="" href="/search">
+            <h3>Click Here To Begin</h3>
+        </a>
+</div> --}}
+
+
+
+<div class="card-deck col-12 bg-black" id="results-container">
+    {{#each cards}}
+    <a class="container col-lg-3 col-" href="/place/{{id}}">
+        <div class="card place-card m-2" data-placeId={{id}} type="button">
+            {{#if img}}
+            <img class="card-img-top d-flex col-12" style="height: 200px" src={{img}} alt="Card image cap">
+            {{else}}
+            <img class="card-img-top d-flex col-12 p-0"
+                src="https://via.placeholder.com/300x200/B5D8FF/808080?Text=Add/" alt="Card image cap">
+            {{/if}}
+            <div class="card-img-overlay">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p>
+                    {{streetAddress}} <br>
+                    {{city}}, {{state}} {{zip}}
+                    <br>
+                </p>
+                <p>
+                    <div class="d-inline-block place-rating" data-rating={{ratingAvg}} id="{{@index}}-place-rating">
+                    </div>
+                </p>
+            </div>
+        </div>
+    </a>
+
+    {{/each}}
+</div>
+
+
+<footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+
+</footer>
+
+<script src="/styles/index.js"></script>
