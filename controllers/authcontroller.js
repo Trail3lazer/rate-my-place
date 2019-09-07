@@ -10,7 +10,7 @@ module.exports.signin = function(req, res) {
 };
 
 module.exports.index = function(req, res) {
-  res.render("index");
+  res.render("index", { firstname: req.user.firstname });
 };
 
 module.exports.logout = function(req, res) {
