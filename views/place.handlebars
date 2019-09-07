@@ -1,5 +1,5 @@
-<div class="jumbotron">
-    <img src={{place.img}} alt="img">
+<div class="jumbotron pt-4">
+    <img src={{place.img}} class="pt-2 img-fluid col-6" alt="img">
     <h1 class="display-1">{{place.name}}</h1>
 
     <p class="lead">
@@ -17,10 +17,10 @@
         <i class="fas fa-phone-alt"></i> {{place.phone}}
         <br />
         <i class="fas fa-briefcase"></i> {{place.propMgr}}
-         <br />
-         <br />
-          <a class="btn btn-success" href="{{place.URL}}" role="button">Go to place website</a>
-       </p>
+        <br />
+        <br />
+        <a class="btn btn-success" href="{{place.URL}}" role="button">Go to place website</a>
+    </p>
     <p>
         <div class="d-inline-block">
             <div class="rating" id="place-rating" data-rating={{place.ratingAvg}}></div>
@@ -34,7 +34,8 @@
         <h1>Add A Comment</h1>
 
         <div class="form-group">
-            <textarea class="form-control" name="text" id="newComment-text" placeholder="I loved... It could have been better if..." rows="2"></textarea>
+            <textarea class="form-control" name="text" id="newComment-text"
+                placeholder="I loved... It could have been better if..." rows="2"></textarea>
         </div>
 
         <div class="form-group">
@@ -56,10 +57,11 @@
 
         <ghostData class="form-group">
             <input type="hidden" name="placeKey" value={{place.id}} />
-            
-            <input type="hidden" name="username" {{#if users.username}} value={{users.username}} {{else}} value="Anonymous" {{/if}}/>
-            <input type="hidden" name="userId" {{#if users.userId}} value={{users.userId}} {{else}} value="1" {{/if}}/>
-        
+
+            <input type="hidden" name="username" {{#if users.username}} value={{users.username}} {{else}}
+                value="Anonymous" {{/if}} />
+            <input type="hidden" name="userId" {{#if users.userId}} value={{users.userId}} {{else}} value="1" {{/if}} />
+
         </ghostData>
 
         <button type="submit" class="btn btn-primary" id="newComment-submit">Comment</button>
@@ -82,5 +84,5 @@
     </ul>
 </div>
 <!-- End Comments -->
-</div>
+
 <script src="/js/place.js"></script>
