@@ -1,5 +1,7 @@
 # rate-my-place
 
+https://ratemypad.herokuapp.com/
+
 # Colabpeeps
 - Tali Lead
 - Renee DB
