@@ -1,11 +1,6 @@
 # rate-my-place
 
-# Colabpeeps
-- Tali Lead
-- Renee DB
-- Architect Bronson
-- QA David
-- DevOps Jared
+An app to allow people to rate thier apartments or rentals. Similar to Rate My Proffessor. Rating and adding comments is all fully functional. Still working on setting up Users and User permissions
 
 # Reqs
 
