@@ -1,6 +1,11 @@
 # rate-my-place
 
-An app to allow people to rate thier apartments or rentals. Similar to Rate My Proffessor. Rating and adding comments is all fully functional. Still working on setting up Users and User permissions
+
+https://ratemypad.herokuapp.com/
+
+An app to allow people to rate thier apartments or rentals. 
+* Similar to Rate My Proffessor. Rating and adding comments is all fully functional. 
+* Still working on setting up Users and User permissions
 
 # Reqs
 
